@@ -14619,7 +14619,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <h2 id="Step-1-:-Validating-Assumptions-and-Building-PoC-Model">Step 1 : Validating Assumptions and Building PoC Model<a class="anchor-link" href="#Step-1-:-Validating-Assumptions-and-Building-PoC-Model">&#182;</a></h2><p>Overall approach</p>
 <ol>
 <li>Some EDA, cleaning up</li>
-<li>classical model, using BoW, tfidf and Random Forests (~94% F1 score)</li>
+<li>classical model, using BoW, tfidf and Random Forests (~93% F1 score)</li>
 <li>neural pre-trained BERT model to finetune on problem, and see if we can improve results (~98% F1 score)</li>
 </ol>
 <h2 id="Step-2-:-Architecting">Step 2 : Architecting<a class="anchor-link" href="#Step-2-:-Architecting">&#182;</a></h2><ol>
@@ -16780,13 +16780,6 @@ $(&quot;a[href^=&#x27;#&#x27;].anchor&quot;).on(&#x27;click&#x27;, function (e) 
 </div>
 </div>
 
-</div>
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="There-is-also-a-very-rare-intent-(==1).-Lets-drop-this-as-we-probably-cannot-predict-it-well.">There is also a very rare intent (==1). Lets drop this as we probably cannot predict it well.<a class="anchor-link" href="#There-is-also-a-very-rare-intent-(==1).-Lets-drop-this-as-we-probably-cannot-predict-it-well.">&#182;</a></h3><h3 id="Lets-also-remember-what-%25-of-data-they-comprise-because-we-will-not-be-able-to-predict-them">Lets also remember what % of data they comprise because we will not be able to predict them<a class="anchor-link" href="#Lets-also-remember-what-%25-of-data-they-comprise-because-we-will-not-be-able-to-predict-them">&#182;</a></h3>
-</div>
-</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -16845,6 +16838,13 @@ Name: intent_splits, dtype: int64</pre>
 
 </div>
 
+</div>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="There-is-also-a-very-rare-intent-(==1).-Lets-drop-this-as-we-probably-cannot-predict-it-well.">There is also a very rare intent (==1). Lets drop this as we probably cannot predict it well.<a class="anchor-link" href="#There-is-also-a-very-rare-intent-(==1).-Lets-drop-this-as-we-probably-cannot-predict-it-well.">&#182;</a></h3><h3 id="Lets-also-remember-what-%25-of-data-they-comprise-because-we-will-not-be-able-to-predict-them">Lets also remember what % of data they comprise because we will not be able to predict them<a class="anchor-link" href="#Lets-also-remember-what-%25-of-data-they-comprise-because-we-will-not-be-able-to-predict-them">&#182;</a></h3>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -16954,10 +16954,10 @@ Name: intent_splits, dtype: int64</pre>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[106]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">raw_subset</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">raw_subset</span><span class="p">[</span><span class="s2">&quot;intent_splits&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
 </pre></div>
 
      </div>
@@ -16975,105 +16975,18 @@ Name: intent_splits, dtype: int64</pre>
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[11]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[106]:</div>
 
 
 
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>intents</th>
-      <th>text</th>
-      <th>intent_splits</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>atis_flight</td>
-      <td>i want to fly from boston at 838 am and arriv...</td>
-      <td>atis_flight</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>atis_flight</td>
-      <td>what flights are available from pittsburgh to...</td>
-      <td>atis_flight</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>atis_flight_time</td>
-      <td>what is the arrival time in san francisco for...</td>
-      <td>atis_flight_time</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>atis_airfare</td>
-      <td>cheapest airfare from tacoma to orlando</td>
-      <td>atis_airfare</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>atis_airfare</td>
-      <td>round trip fares from pittsburgh to philadelp...</td>
-      <td>atis_airfare</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>4973</th>
-      <td>atis_airfare</td>
-      <td>what is the airfare for flights from denver t...</td>
-      <td>atis_airfare</td>
-    </tr>
-    <tr>
-      <th>4974</th>
-      <td>atis_flight</td>
-      <td>do you have any flights from denver to baltim...</td>
-      <td>atis_flight</td>
-    </tr>
-    <tr>
-      <th>4975</th>
-      <td>atis_airline</td>
-      <td>which airlines fly into and out of denver</td>
-      <td>atis_airline</td>
-    </tr>
-    <tr>
-      <th>4976</th>
-      <td>atis_flight</td>
-      <td>does continental fly from boston to san franc...</td>
-      <td>atis_flight</td>
-    </tr>
-    <tr>
-      <th>4977</th>
-      <td>atis_flight</td>
-      <td>is there a delta flight from denver to san fr...</td>
-      <td>atis_flight</td>
-    </tr>
-  </tbody>
-</table>
-<p>5004 rows × 3 columns</p>
-</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>array([(&#39;atis_flight&#39;,), (&#39;atis_flight_time&#39;,), (&#39;atis_airfare&#39;,),
+       (&#39;atis_aircraft&#39;,), (&#39;atis_ground_service&#39;,), (&#39;atis_airport&#39;,),
+       (&#39;atis_airline&#39;,), (&#39;atis_distance&#39;,), (&#39;atis_abbreviation&#39;,),
+       (&#39;atis_ground_fare&#39;,), (&#39;atis_quantity&#39;,), (&#39;atis_city&#39;,),
+       (&#39;atis_flight_no&#39;,), (&#39;atis_capacity&#39;,), (&#39;atis_meal&#39;,),
+       (&#39;atis_restriction&#39;,)], dtype=object)</pre>
 </div>
 
 </div>
@@ -17086,7 +16999,7 @@ Name: intent_splits, dtype: int64</pre>
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="lets-drop-duplicates-here-to-clean-our-dataset">lets drop duplicates here to clean our dataset<a class="anchor-link" href="#lets-drop-duplicates-here-to-clean-our-dataset">&#182;</a></h3>
+<h3 id="Great-we-removed-the-class-that-is-very-rare,-lets-now-clean-our-dataset-up-a-bit-more">Great we removed the class that is very rare, lets now clean our dataset up a bit more<a class="anchor-link" href="#Great-we-removed-the-class-that-is-very-rare,-lets-now-clean-our-dataset-up-a-bit-more">&#182;</a></h3><h3 id="lets-drop-duplicates-here-to-clean-our-dataset">lets drop duplicates here to clean our dataset<a class="anchor-link" href="#lets-drop-duplicates-here-to-clean-our-dataset">&#182;</a></h3>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
@@ -17110,7 +17023,7 @@ Name: intent_splits, dtype: int64</pre>
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="And-lets-regroup-our-data-before-splitting-them-so-that-text-with-multiple-labels-are-combined-together-and-not-split-into-train/test">And lets regroup our data before splitting them so that text with multiple labels are combined together and not split into train/test<a class="anchor-link" href="#And-lets-regroup-our-data-before-splitting-them-so-that-text-with-multiple-labels-are-combined-together-and-not-split-into-train/test">&#182;</a></h3>
+<h3 id="And-lets-regroup-our-data-before-splitting-them-into-train-and-test-so-that-text-with-multiple-labels-are-combined-together-and-not-split-into-train/test">And lets regroup our data before splitting them into train and test so that text with multiple labels are combined together and not split into train/test<a class="anchor-link" href="#And-lets-regroup-our-data-before-splitting-them-into-train-and-test-so-that-text-with-multiple-labels-are-combined-together-and-not-split-into-train/test">&#182;</a></h3>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
@@ -17243,7 +17156,7 @@ Name: intent_splits, dtype: int64</pre>
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="splits-looks-good---ensuring-that-the-for-the-6-sample-case,-at-least-one-is-in-test">splits looks good - ensuring that the for the 6 sample case, at least one is in test<a class="anchor-link" href="#splits-looks-good---ensuring-that-the-for-the-6-sample-case,-at-least-one-is-in-test">&#182;</a></h3>
+<h3 id="splits-looks-good---also-I-want-to-ensure-that-for-the-rarer-classes,-at-least-one-is-in-test">splits looks good - also I want to ensure that for the rarer classes, at least one is in test<a class="anchor-link" href="#splits-looks-good---also-I-want-to-ensure-that-for-the-rarer-classes,-at-least-one-is-in-test">&#182;</a></h3>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
@@ -17441,51 +17354,6 @@ Name: intent_splits, dtype: int64</pre>
 
 </div>
 
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[22]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">label_names</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[22]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>array([&#39;atis_abbreviation&#39;, &#39;atis_aircraft&#39;, &#39;atis_airfare&#39;,
-       &#39;atis_airline&#39;, &#39;atis_airport&#39;, &#39;atis_capacity&#39;, &#39;atis_city&#39;,
-       &#39;atis_distance&#39;, &#39;atis_flight&#39;, &#39;atis_flight_no&#39;,
-       &#39;atis_flight_time&#39;, &#39;atis_ground_fare&#39;, &#39;atis_ground_service&#39;,
-       &#39;atis_meal&#39;, &#39;atis_quantity&#39;, &#39;atis_restriction&#39;], dtype=object)</pre>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
 </div>
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
@@ -17538,7 +17406,7 @@ Name: intent_splits, dtype: int64</pre>
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Ready-for-analysis">Ready for analysis<a class="anchor-link" href="#Ready-for-analysis">&#182;</a></h3><h3 id="Approach-1---simple-bag-of-words,-tfidf,-then-random-forest">Approach 1 - simple bag of words, tfidf, then random forest<a class="anchor-link" href="#Approach-1---simple-bag-of-words,-tfidf,-then-random-forest">&#182;</a></h3><h3 id="Considerations--">Considerations -<a class="anchor-link" href="#Considerations--">&#182;</a></h3><ol>
+<h3 id="Great-we-are-now-really-to-see-if-we-can-accurately-predict-intents">Great we are now really to see if we can accurately predict intents<a class="anchor-link" href="#Great-we-are-now-really-to-see-if-we-can-accurately-predict-intents">&#182;</a></h3><h3 id="Approach-1---simple-bag-of-words,-tfidf,-then-random-forest">Approach 1 - simple bag of words, tfidf, then random forest<a class="anchor-link" href="#Approach-1---simple-bag-of-words,-tfidf,-then-random-forest">&#182;</a></h3><h3 id="Considerations--">Considerations -<a class="anchor-link" href="#Considerations--">&#182;</a></h3><ol>
 <li>Easy to tune</li>
 <li>Generally robust</li>
 <li>Good baseline model</li>
@@ -17662,6 +17530,13 @@ atis_ground_service       1.00      1.00      1.00       194
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Training-metrics-look-very-good---a-bit-too-good-to-be-true?-Probably-overfitted-quite-a-bit">Training metrics look very good - a bit too good to be true? Probably overfitted quite a bit<a class="anchor-link" href="#Training-metrics-look-very-good---a-bit-too-good-to-be-true?-Probably-overfitted-quite-a-bit">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="Eval/Test-metrics">Eval/Test metrics<a class="anchor-link" href="#Eval/Test-metrics">&#182;</a></h3>
 </div>
 </div>
@@ -17750,17 +17625,14 @@ atis_ground_service       0.95      1.00      0.98        42
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Thoughts-:--Overall-F1-scores-look-ok,-but-we-are-doing-badly-on-the-very-small-sample-datapoints.-We're-doing-kinda-ok-on-the-higher-ones-though,-and-the-micro-F1-is-0.94-which-is-not-too-bad">Thoughts :  Overall F1 scores look ok, but we are doing badly on the very small sample datapoints. We're doing kinda ok on the higher ones though, and the micro F1 is 0.94 which is not too bad<a class="anchor-link" href="#Thoughts-:--Overall-F1-scores-look-ok,-but-we-are-doing-badly-on-the-very-small-sample-datapoints.-We're-doing-kinda-ok-on-the-higher-ones-though,-and-the-micro-F1-is-0.94-which-is-not-too-bad">&#182;</a></h3>
+<h3 id="Thoughts-:--Eval-F1-scores-look-ok,-but-we-are-doing-badly-on-the-very-small-sample-datapoints.-We're-doing-kinda-ok-on-the-higher-ones-though,-and-the-micro-F1-is-0.93-which-is-not-too-bad">Thoughts :  Eval F1 scores look ok, but we are doing badly on the very small sample datapoints. We're doing kinda ok on the higher ones though, and the micro F1 is 0.93 which is not too bad<a class="anchor-link" href="#Thoughts-:--Eval-F1-scores-look-ok,-but-we-are-doing-badly-on-the-very-small-sample-datapoints.-We're-doing-kinda-ok-on-the-higher-ones-though,-and-the-micro-F1-is-0.93-which-is-not-too-bad">&#182;</a></h3><h3 id="There-definitely-is-overfitting-for-this-model-because-training-F1-is-0.99,-and-eval-F1-is-0.93.-However,-I-think-we-should-move-on-to-the-neural-network-approach-because-leveraging-on-pre-trained-models-would-likely-get-us-much-further">There definitely is overfitting for this model because training F1 is 0.99, and eval F1 is 0.93. However, I think we should move on to the neural network approach because leveraging on pre-trained models would likely get us much further<a class="anchor-link" href="#There-definitely-is-overfitting-for-this-model-because-training-F1-is-0.99,-and-eval-F1-is-0.93.-However,-I-think-we-should-move-on-to-the-neural-network-approach-because-leveraging-on-pre-trained-models-would-likely-get-us-much-further">&#182;</a></h3>
 </div>
 </div>
 </div>
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="Calculate-feature-importances">Calculate feature importances<a class="anchor-link" href="#Calculate-feature-importances">&#182;</a></h1><ul>
-<li>Lets get a rough sense of what the model is predicting on for a single class - atis_flight</li>
-</ul>
-
+<h3 id="Before-we-go-on-to-neural-models,-lets-calculate-feature-importances-to-get-a-rough-sense-of-what-the-model-is-predicting-on-for-a-single-class---atis_flight">Before we go on to neural models, lets calculate feature importances to get a rough sense of what the model is predicting on for a single class - atis_flight<a class="anchor-link" href="#Before-we-go-on-to-neural-models,-lets-calculate-feature-importances-to-get-a-rough-sense-of-what-the-model-is-predicting-on-for-a-single-class---atis_flight">&#182;</a></h3>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
@@ -17835,9 +17707,9 @@ atis_ground_service       0.95      1.00      0.98        42
 
 
 
-<div id="70f09d97-cb85-4d8e-8c1d-f7ffb236b54b" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="8b47101e-23ec-4294-8efe-40bb7fd53cfe" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('70f09d97-cb85-4d8e-8c1d-f7ffb236b54b');
+var element = document.getElementById('8b47101e-23ec-4294-8efe-40bb7fd53cfe');
 /* Put everything inside the global mpl namespace */
 /* global mpl */
 window.mpl = {};
@@ -18819,7 +18691,7 @@ if (IPython.notebook.kernel !== null) {
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Makes-sense---lets-try-to-do-better-with-a-pre-trained-language-model">Makes sense - lets try to do better with a pre-trained language model<a class="anchor-link" href="#Makes-sense---lets-try-to-do-better-with-a-pre-trained-language-model">&#182;</a></h3><h3 id="This-can-hopefully-capture-the-underlying-semantic-meaning-better">This can hopefully capture the underlying semantic meaning better<a class="anchor-link" href="#This-can-hopefully-capture-the-underlying-semantic-meaning-better">&#182;</a></h3><h3 id="Model-chosen-:-distilbert-base-uncased---simple-language-model,-small,-great-for-a-start-,-not-fine-tuned-for-any-other-problem">Model chosen : distilbert-base-uncased - simple language model, small, great for a start , not fine-tuned for any other problem<a class="anchor-link" href="#Model-chosen-:-distilbert-base-uncased---simple-language-model,-small,-great-for-a-start-,-not-fine-tuned-for-any-other-problem">&#182;</a></h3>
+<h3 id="Makes-sense---seems-like-the-classical-model-works-pretty-well-out-of-the-box.-Lets-try-to-do-better-with-a-pre-trained-language-model">Makes sense - seems like the classical model works pretty well out of the box. Lets try to do better with a pre-trained language model<a class="anchor-link" href="#Makes-sense---seems-like-the-classical-model-works-pretty-well-out-of-the-box.-Lets-try-to-do-better-with-a-pre-trained-language-model">&#182;</a></h3><h3 id="This-can-hopefully-capture-the-underlying-semantic-meaning-better">This can hopefully capture the underlying semantic meaning better<a class="anchor-link" href="#This-can-hopefully-capture-the-underlying-semantic-meaning-better">&#182;</a></h3><h3 id="Model-chosen-:-distilbert-base-uncased---simple-language-model,-small,-great-for-a-start-,-not-fine-tuned-for-any-other-problem.-What-we-can-do-then-is-finetune-it-to-solve-this-multilabel-classification-problem-specifically">Model chosen : distilbert-base-uncased - simple language model, small, great for a start , not fine-tuned for any other problem. What we can do then is finetune it to solve this multilabel classification problem specifically<a class="anchor-link" href="#Model-chosen-:-distilbert-base-uncased---simple-language-model,-small,-great-for-a-start-,-not-fine-tuned-for-any-other-problem.-What-we-can-do-then-is-finetune-it-to-solve-this-multilabel-classification-problem-specifically">&#182;</a></h3>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
@@ -19062,7 +18934,7 @@ You should probably TRAIN this model on a down-stream task to be able to use it 
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Using-wandb-for-model-training-metrics,-but-can-be-changed">Using wandb for model training metrics, but can be changed<a class="anchor-link" href="#Using-wandb-for-model-training-metrics,-but-can-be-changed">&#182;</a></h3>
+<h3 id="Using-wandb-to-track-model-training-metrics,-but-can-be-changed">Using wandb to track model training metrics, but can be changed<a class="anchor-link" href="#Using-wandb-to-track-model-training-metrics,-but-can-be-changed">&#182;</a></h3>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
@@ -19683,7 +19555,7 @@ Model weights saved in ../models/model_airline_intents.pkl/pytorch_model.bin
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Visualising-evaluation-metrics-over-training---ensure-that-we-have-converged,-and-aren't-overfitting">Visualising evaluation metrics over training - ensure that we have converged, and aren't overfitting<a class="anchor-link" href="#Visualising-evaluation-metrics-over-training---ensure-that-we-have-converged,-and-aren't-overfitting">&#182;</a></h3>
+<h3 id="Visualising-evaluation-metrics-over-training---ensure-that-number-of-epochs-is-enough-and-we-have-converged,-and-also-that-we-aren't-overfitting">Visualising evaluation metrics over training - ensure that number of epochs is enough and we have converged, and also that we aren't overfitting<a class="anchor-link" href="#Visualising-evaluation-metrics-over-training---ensure-that-number-of-epochs-is-enough-and-we-have-converged,-and-also-that-we-aren't-overfitting">&#182;</a></h3>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
@@ -19812,7 +19684,7 @@ Model weights saved in ../models/model_airline_intents.pkl/pytorch_model.bin
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Lets-see-how-well-we-do-on-the-evaluation-set">Lets see how well we do on the evaluation set<a class="anchor-link" href="#Lets-see-how-well-we-do-on-the-evaluation-set">&#182;</a></h3>
+<h3 id="Lets-see-how-well-we-do-on-the-evaluation-set-using-our-neural-network">Lets see how well we do on the evaluation set using our neural network<a class="anchor-link" href="#Lets-see-how-well-we-do-on-the-evaluation-set-using-our-neural-network">&#182;</a></h3>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
@@ -20075,7 +19947,7 @@ atis_ground_service       1.00      1.00      1.00        42
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Effort-saved-:-97.5%25-of-queries-automated-Human-Intervention-:-1-per-40-queries">Effort saved : 97.5% of queries automated Human Intervention : 1 per 40 queries<a class="anchor-link" href="#Effort-saved-:-97.5%25-of-queries-automated-Human-Intervention-:-1-per-40-queries">&#182;</a></h3>
+<h3 id="Effort-saved-with-model-:-97.5%25-of-queries-automated-%7C-Human-Intervention-needed-:-only-1-per-40-queries">Effort saved with model : 97.5% of queries automated | Human Intervention needed : only 1 per 40 queries<a class="anchor-link" href="#Effort-saved-with-model-:-97.5%25-of-queries-automated-%7C-Human-Intervention-needed-:-only-1-per-40-queries">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -20083,8 +19955,15 @@ atis_ground_service       1.00      1.00      1.00        42
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="Step-2-:-Architecting">Step 2 : Architecting<a class="anchor-link" href="#Step-2-:-Architecting">&#182;</a></h3><ul>
-<li>Big idea - how do we deploy a system that can maintain accuracy over time, is scalable, has visible metrics and logs, and can also be extended further? </li>
+<li>How do we deploy a system that can maintain accuracy over time, is scalable, has visible metrics and logs, and can also be extended further? </li>
 <li>See below for final design and architecture for monitoring and visibility of deployed intents model</li>
+<li>Big idea is we want to save prediction results as well as whatever feedback metrics we can get from user in a database so that we can subsequently use thte data to improve the model, as well as visualise those metrics to be sure that our model is still accurate and doing well</li>
+</ul>
+<h3 id="Component-choices">Component choices<a class="anchor-link" href="#Component-choices">&#182;</a></h3><ul>
+<li>Backend - fastAPI - generally the fastest API backend in python, uses ASGI and also comes with free swagger API documentation</li>
+<li>Metrics storage - prometheus - great time series database for storing real-time metrics</li>
+<li>Metrics visualisation - grafana - great visualisation tool for metrics</li>
+<li>Model Registroy - MLFlow - good model registry framework, used to track and register models that would be deployed</li>
 </ul>
 
 </div>
